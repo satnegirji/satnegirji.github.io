@@ -29,17 +29,12 @@ page '/*.txt', layout: false
 #     "Helping"
 #   end
 # end
-API_URL = ENV['API_URL'] || "www.satnegirji.dev:4567"
+API_URL = ENV['API_URL'] || "www.satnegirji.org"
 config[:api_url] = API_URL
-config[:root_domain] = API_URL.split(".").reverse[0..1].reverse.join(".")
 
 helpers do
   def api_url
     config[:api_url]
-  end
-
-  def root_domain
-    config[:root_domain]
   end
 end
 
