@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+  <head>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta charset="utf-8">
+    <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+
+    <!-- Use title if it's in the page YAML frontmatter -->
+    <title><%= current_page.data.title %></title>
+
+
+    <%= stylesheet_link_tag :site %>
+    <%= javascript_include_tag 'jquery.min', 'nano.min', 'navigo.min', 'satnegirji' %>
+    <script id="word-template" type="text/html">
+      <h2>{body} <small>({language})</small></h2>
+      <ul class="results">
+        {translations}
+      </ul>
+    </script>
+    <script id="translations-template" type="text/html">
+      <li><a href="#/word/{id}">{body}</a> ({language})</li>
+    </script>
+    <script id="results-template" type="text/html">
+      <h2>Search results:</h2>
+      <ul class="results">
+        {results}
+      </ul>
+    </script>
+    <script id="results-row" type="text/html">
+      <li><a href='#/word/{id}' data-navigo>{body}</a><small>({language})</small></li>
+    </script>
+  </head>
+
+  <body class="<%= page_classes %>">
+    <div class="container">
+      <header>
+        <h1>Satnegirji.org</h1>
+        <h2>Open source dictionary for Sami language</h2>
+      </header>
+      <div class="page">
+        <%= yield %>
+      </div>
+    </div>
+  </body>
+</html>

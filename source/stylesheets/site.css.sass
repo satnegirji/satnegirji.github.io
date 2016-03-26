@@ -1,0 +1,87 @@
+$tablet-width: 640px
+$desktop-width: 1024px
+
+@import url(//fonts.googleapis.com/css?family=Inconsolata:400,700|Montserrat:700)
+
+html
+  font: 16px/1.5 Inconsolata, sans-serif
+  color: #555555
+
+@mixin tablet
+  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px})
+    @content
+
+@mixin desktop
+  @media (min-width: #{$desktop-width})
+    @content
+
+.container
+  margin: 0 auto
+  width: 80%
+  font-size: 16px
+  @include tablet
+    font-size: 20px
+    width: 28em
+  @include desktop
+    font-size: 20px
+    width: 38em
+
+header
+  margin-bottom: 2em
+  h1
+    font-size: 300%
+    font-weight: bold
+    font-family: Montserrat, sans-serif
+    margin-bottom: 0
+    padding-bottom: 0
+    color: #121212
+  h2
+    font-size: 100%
+    font-weight: normal
+    margin-top: 0
+    padding-top: 0
+
+.page
+  font-family: Inconsolata, sans-serif
+  margin-bottom: 2em
+  a
+    color: #3242ff
+    text-decoration: none
+    &:hover
+      text-decoration: underline
+  h2
+    font-size: 130%
+    font-weight: normal
+    small
+      font-size: 60%
+      font-size: normal
+  .results
+    line-height: 1.6
+    small
+      font-size: 90%
+      color: #747474
+      margin-left: 0.5em
+
+.search-box
+  margin-bottom: 2em
+
+.search-form
+  font-size: 120%
+  input
+    padding: 8px 12px
+
+  input[type=text]
+    font-size: 120%
+    width: 9em
+    @include tablet
+      width: 80%
+    @include desktop
+      width: 80%
+
+  input[type=submit]
+    font-size: 120%
+    border: 0
+    background-color: black
+    color: white
+
+
