@@ -2,6 +2,7 @@ $tablet-width: 640px
 $desktop-width: 1024px
 
 @import url(//fonts.googleapis.com/css?family=Inconsolata:400,700|Montserrat:700)
+@import "font-awesome/font-awesome"
 
 html
   font: 16px/1.5 Inconsolata, sans-serif
@@ -78,9 +79,10 @@ header
     @include desktop
       width: 80%
 
-  input[type=submit]
+  button[type=submit]
+    padding: 8px 12px
     font-size: 120%
-    border: 0
+    border: 1px solid black
     background-color: black
     color: white
 
