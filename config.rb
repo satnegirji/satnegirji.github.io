@@ -29,8 +29,8 @@ page '/*.txt', layout: false
 #     "Helping"
 #   end
 # end
-API_URL = ENV['API_URL'] || "www.satnegirji.org"
-config[:api_url] = API_URL
+
+config[:api_url] = ENV['API_URL'] || "api.satnegirji.org"
 
 helpers do
   def api_url
