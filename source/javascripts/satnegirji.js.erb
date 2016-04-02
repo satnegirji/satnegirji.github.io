@@ -27,23 +27,26 @@ $(document).ready( function() {
   var api_url = "<%= api_url %>";
   $('form').on('submit', function(ev) {
     ev.preventDefault();
-    var query = $(this).serialize();
-    $.ajax({
-      url: api_url+"/search",
-      method: "GET",
-      data: query,
-      dataType: "JSON",
-      error: function(jqXHR, textStatus, errorThrown ) {
-        console.log("====================================");
-        console.log("error throw:", errorThrown);
-        console.log("text status:", textStatus);
-        console.log("====================================");
-      },
-      success: function(data, textStatus, jqXHR) {
-        router.navigate("");
-        build_results(data['results']);
-      }
-    });
+    var values = $(this).serializeArray();
+    var term = values[0].value;
+    if(term && term.length > 0)
+    {
+      $.ajax({
+        url: api_url+"/search/"+term,
+        method: "GET",
+        dataType: "JSON",
+        error: function(jqXHR, textStatus, errorThrown ) {
+          console.log("====================================");
+          console.log("error throw:", errorThrown);
+          console.log("text status:", textStatus);
+          console.log("====================================");
+        },
+        success: function(data, textStatus, jqXHR) {
+          router.navigate("");
+          build_results(data['results']);
+        }
+      });
+    }
     return false;
   })
 
