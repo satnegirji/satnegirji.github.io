@@ -30,7 +30,7 @@ page '/*.txt', layout: false
 #   end
 # end
 
-config[:api_url] = ENV['API_URL'] || "api.satnegirji.org"
+config[:api_url] = ENV['API_URL'] || "http://api.satnegirji.org"
 
 helpers do
   def api_url
