@@ -31,8 +31,10 @@ $(document).ready( function() {
     var term = values[0].value;
     if(term && term.length > 0)
     {
+      var resource_url = api_url + "/search?query=" + term;
+      console.log("  resource_url:", resource_url);
       $.ajax({
-        url: api_url+"/search/"+term,
+        url: resource_url,
         method: "GET",
         dataType: "JSON",
         error: function(jqXHR, textStatus, errorThrown ) {
