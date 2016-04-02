@@ -57,11 +57,11 @@ $(document).ready( function() {
     '/word/:id': function(params) {
       var id = params.id.replace(/\D/g,'');
       $.ajax({
-        url: api_url+"/word/"+id,
+        url: api_url+"/word?id="+id,
         method: "GET",
         dataType: "JSON",
         success: function(data, textStatus, jqXHR) {
-          build_translation(data.word, data.translations);
+          build_translation(data, data.translations);
         },
         error: function(jqXHR, textStatus, errorThrown) {
           console.log("====================================");
