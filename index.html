@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+  <head>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta charset="utf-8">
+    <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+
+    <!-- Use title if it's in the page YAML frontmatter -->
+    <title>Satnegirji.org</title>
+
+
+    <link href="/stylesheets/site.css" rel="stylesheet" />
+    <script src="/javascripts/jquery.min.js"></script><script src="/javascripts/nano.min.js"></script><script src="/javascripts/navigo.min.js"></script><script src="/javascripts/satnegirji.js"></script>
+    <script id="word-template" type="text/html">
+      <h2>{body} <small>({language})</small></h2>
+      <ul class="results">
+        {translations}
+      </ul>
+    </script>
+    <script id="translations-template" type="text/html">
+      <li><a href="#/word/{id}">{body}</a> ({language})</li>
+    </script>
+    <script id="results-template" type="text/html">
+      <h2>Search results:</h2>
+      <ul class="results">
+        {results}
+      </ul>
+    </script>
+    <script id="results-row" type="text/html">
+      <li><a href='#/word/{id}' data-navigo>{body}</a><small>({language})</small></li>
+    </script>
+  </head>
+
+  <body class="index">
+    <div class="container">
+      <header>
+        <h1>Satnegirji.org</h1>
+        <h2>
+          Open source dictionary for Sami language. Be patient, we're still in beta version.
+          <a href="https://satnegirji-translator.herokuapp.com/">Login as translator &rarr;</a>
+        </h2>
+      </header>
+      <div class="page">
+        <div class="search-box">
+  <form class="search-form" action="http://api.satnegirji.org" method="GET">
+    <input type="text" name="query" />
+    <button type="submit"><i class="fa fa-search"></i></button>
+  </form>
+</div>
+<p id="inner-page"></p>
+
+      </div>
+    </div>
+  </body>
+</html>
