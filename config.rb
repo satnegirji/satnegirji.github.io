@@ -31,10 +31,15 @@ page '/*.txt', layout: false
 # end
 
 config[:api_url] = ENV['API_URL'] || "http://api.satnegirji.org"
+config[:translator_url] = ENV['TRANSLATOR_URL'] || "https://satnegirji-translator.herokuapp.com/"
 
 helpers do
   def api_url
     config[:api_url]
+  end
+
+  def translator_url
+    config[:translator_url]
   end
 end
 
